@@ -1,7 +1,7 @@
 {
-  "name": "vuex-persist",
-  "version": "3.1.3",
-  "description": "A Vuex persistence plugin in Typescript",
+  "name": "vuex-persist-es5",
+  "version": "0.0.1",
+  "description": "A port of vuex-persist targeting es5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -15,7 +15,7 @@
   "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/championswimmer/vuex-persist.git"
+    "url": "git+https://github.com/oscarchilds/vuex-persist.git"
   },
   "scripts": {
     "doc:clean": "rimraf docs",
@@ -46,12 +46,12 @@
     "persist",
     "localstorage"
   ],
-  "author": "Arnav Gupta <championswimmer@gmail.com>",
+  "author": "Oscar Childs <oscarjchilds@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/championswimmer/vuex-persist/issues"
+    "url": "https://github.com/oscarchilds/vuex-persist/issues"
   },
-  "homepage": "https://github.com/championswimmer/vuex-persist#readme",
+  "homepage": "https://github.com/oscarchilds/vuex-persist#readme",
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/lodash": "^4.6.4",
