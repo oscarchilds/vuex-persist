@@ -1,6 +1,6 @@
 {
   "name": "vuex-persist-es5",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A port of vuex-persist targeting es5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
