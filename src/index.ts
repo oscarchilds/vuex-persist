@@ -8,7 +8,7 @@ import { PersistOptions } from './PersistOptions'
 import SimplePromiseQueue from './SimplePromiseQueue'
 import { merge, MergeOptionType } from './utils'
 
-let FlattedJSON = JSON
+let CircularJSON = JSON
 
 /**
  * A class that implements the vuex persistence.
@@ -54,7 +54,7 @@ export class VuexPersistence<S> implements PersistOptions<S> {
     this.subscribed = false
     this.supportCircular = options.supportCircular || false
     if (this.supportCircular) {
-      FlattedJSON = require('flatted')
+      CircularJSON = require('circular-json')
     }
     this.mergeOption = options.mergeOption || 'replaceArrays'
 
@@ -130,7 +130,7 @@ export class VuexPersistence<S> implements PersistOptions<S> {
                 typeof value === 'string' // If string, parse, or else, just return
                   ? (
                     this.supportCircular
-                      ? FlattedJSON.parse(value || '{}')
+                      ? CircularJSON.parse(value || '{}')
                       : JSON.parse(value || '{}')
                   )
                   : (value || {})
@@ -154,7 +154,7 @@ export class VuexPersistence<S> implements PersistOptions<S> {
                 ? merge({}, state || {}, this.mergeOption)
                 : (
                   this.supportCircular
-                    ? FlattedJSON.stringify(state) as any
+                    ? CircularJSON.stringify(state) as any
                     : JSON.stringify(state) as any
                 )
               )
@@ -210,7 +210,7 @@ export class VuexPersistence<S> implements PersistOptions<S> {
             if (typeof value === 'string') {// If string, parse, or else, just return
               return (
                 this.supportCircular
-                  ? FlattedJSON.parse(value || '{}')
+                  ? CircularJSON.parse(value || '{}')
                   : JSON.parse(value || '{}')
               )
             } else {
@@ -232,7 +232,7 @@ export class VuexPersistence<S> implements PersistOptions<S> {
               key, // Second argument is state _object_ if localforage, stringified otherwise
               (
                 this.supportCircular
-                  ? FlattedJSON.stringify(state) as any
+                  ? CircularJSON.stringify(state) as any
                   : JSON.stringify(state) as any
               )
             )

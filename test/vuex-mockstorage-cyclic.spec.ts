@@ -2,7 +2,6 @@
  * Created by rossng on 02/04/2018.
  */
 import { assert, expect, should } from 'chai'
-import { parse } from 'flatted'
 import Vue from 'vue'
 import { Store } from 'vuex'
 import Vuex from 'vuex'
@@ -27,7 +26,7 @@ const store = new Store<any>({
   },
   plugins: [vuexPersist.plugin]
 })
-const getSavedStore = () => parse(mockStorage.getItem('vuex') || '')
+const getSavedStore = () => JSON.parse(mockStorage.getItem('vuex') || '')
 
 describe('Storage: MockStorage, Test: cyclic object', () => {
   it('should persist cyclic object', () => {
